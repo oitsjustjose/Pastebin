@@ -31,10 +31,10 @@ window.addEventListener('load', () => {
         });
 
         if (resp.status === 200) {
-            const json = await resp.json()
-            location.assign(`/${json.shortid}`)
+            const json = await resp.json();
+            location.assign(`/${json.shortid}`);
         } else {
-            alert("There was an error in creating this paste :(");
+            alert('There was an error in creating this paste :(');
         }
     });
 });
