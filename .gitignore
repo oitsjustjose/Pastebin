@@ -5,3 +5,4 @@ semantic/tasks
 .env
 dist/.DS_Store
 **/.DS_Store
+dist/
