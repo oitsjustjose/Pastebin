@@ -1,26 +1,36 @@
 body.inverted {
     background: #252525;
     color: #eeeeee;
+    transition: background ease-in-out 300ms, color ease-in-out 300ms, border ease-in-out 300ms;
 }
 
 body.inverted textarea {
     background: #303030;
     color: #eeeeee;
-    border: 2px solid #454545;
+    border: 1px solid #454545;
+    transition: background ease-in-out 300ms, color ease-in-out 300ms, border ease-in-out 300ms;
 }
 
 body.inverted textarea:focus {
     background: #353535;
     color: #eeeeee;
-    border: 2px solid #454545;
+    border: 1px solid #454545;
+    transition: background ease-in-out 300ms, color ease-in-out 300ms, border ease-in-out 300ms;
 }
 
 body.inverted select, body.inverted select:focus {
     background-color: #353535;
-    border: 2px solid #454545;
+    border: 1px solid #454545;
     color: #eeeeee;
+    transition: background ease-in-out 300ms, color ease-in-out 300ms, border ease-in-out 300ms;
 }
 
 body.inverted select.form-select {
     background-image: url("/img/select-inverted.png");
+}
+
+/* Slow conversion from dark to light mode */
+
+body:not(.inverted), body:not(.inverted) textarea, body:not(.inverted) textarea:focus, body:not(.inverted) select, body:not(.inverted) select:focus, body:not(.inverted) select.form-select {
+    transition: background ease-in-out 300ms, color ease-in-out 300ms, border ease-in-out 300ms;
 }
