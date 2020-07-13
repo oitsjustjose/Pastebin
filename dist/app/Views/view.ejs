@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Paste (<%= syntax %>)</title>
+
+    <script src="/Libraries/prism-light.js" id="light-js"></script>
+    <link rel="stylesheet" href="/Libraries/prism-light.css" id="light-css">
+
+    <script>
+        window.addEventListener('load', () => {
+            if (window.localStorage.getItem('displayMode') != null) {
+                if (window.localStorage.getItem('displayMode') == 'dark') {
+                    document.getElementById('light-js').setAttribute('src', '/Libraries/prism-dark.js');
+                    document.getElementById('light-css').setAttribute('href', '/Libraries/prism-dark.css');
+                    document.body.style.background = '#2d2d2d';
+                }
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div style="display: block">
+        <pre class="line-numbers"><code class="language-<%= syntax %>"><%= paste %></code></pre>
+    </div>
+</body>
+
+</html>

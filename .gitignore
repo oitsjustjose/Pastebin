@@ -3,4 +3,5 @@ semantic/src
 semantic/tasks
 .idea/
 .env
-dist/
+dist/.DS_Store
+**/.DS_Store

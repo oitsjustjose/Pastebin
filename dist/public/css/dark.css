@@ -1,0 +1,22 @@
+body.inverted {
+    background: #252525;
+    color: #eeeeee;
+}
+
+body.inverted textarea {
+    background: #303030;
+    color: #eeeeee;
+    border: 2px solid #454545;
+}
+
+body.inverted textarea:focus {
+    background: #353535;
+    color: #eeeeee;
+    border: 2px solid #454545;
+}
+
+body.inverted select, body.inverted select:focus {
+    background-color: #353535;
+    border: 2px solid #454545;
+    color: #eeeeee;
+}

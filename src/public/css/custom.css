@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Code&display=swap");
+textarea {
+    font-family: "Fira Code";
+    font-variant-ligatures: common-ligatures;
+    line-height: 1.5em;
+}
+
+.submit-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.submit-wrapper button {
+    height: max-content;
+}
+
+.color-select {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    cursor: pointer;
+    font-size: 32px;
+    user-select: none;
+}
