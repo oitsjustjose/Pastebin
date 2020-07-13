@@ -7,20 +7,10 @@
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
     <title>View Paste (<%= syntax %>)</title>
 
-    <script src="/Libraries/prism-light.js" id="light-js"></script>
-    <link rel="stylesheet" href="/Libraries/prism-light.css" id="light-css">
+    <script src="/Libraries/prism-light.js" id="prism-js"></script>
+    <link href="/Libraries/prism-light.css" id="prism-css" rel="stylesheet">
 
-    <script>
-        window.addEventListener('load', () => {
-            if (window.localStorage.getItem('displayMode') != null) {
-                if (window.localStorage.getItem('displayMode') == 'dark') {
-                    document.getElementById('light-js').setAttribute('src', '/Libraries/prism-dark.js');
-                    document.getElementById('light-css').setAttribute('href', '/Libraries/prism-dark.css');
-                    document.body.style.background = '#2d2d2d';
-                }
-            }
-        })
-    </script>
+    <script src="/js/view-theme.js"></script>
 </head>
 
 <body>
