@@ -9,7 +9,7 @@ const Paste = new Schema({
     paste: { type: String },
     syntax: {
         type: String,
-        default: "text"
+        default: null
     },
     expiresAt: {
         type: Date,

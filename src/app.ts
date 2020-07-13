@@ -19,13 +19,9 @@ app.set('views', path.join(__dirname, './app/Views'))
 
 app.use(express.static(path.join(__dirname, './public')))
 
-mongoose.connect(`mongodb+srv://${process.env.MONGO_URL}/Paste?retryWrites=true&w=majority`, {
+mongoose.connect(`mongodb://${process.env.MONGO_URL}/paste`, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    auth: {
-        user: String(process.env.MONGO_USER),
-        password: String(process.env.MONGO_PASS)
-    }
+    useUnifiedTopology: true
 }).catch((ex) => {
     console.error(ex)
     process.exit(1)

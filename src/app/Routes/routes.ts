@@ -9,6 +9,13 @@ export const init = (app: Application) => {
     app.get('/:id', async (req, res) => {
         const paste = await Pastes.findById(req.params.id)
         if (paste) {
+            // Port old pastes into new ones!
+            if (req.query && paste.syntax === null) {
+                paste.syntax = Object.keys(req.query)[0]
+                await paste.save()
+                console.log("Patched an old save")
+            }
+
             res.render('view', {
                 paste: paste.paste,
                 syntax: paste.syntax
