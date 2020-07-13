@@ -13,7 +13,7 @@ export const init = (app: Application) => {
             if (req.query && paste.syntax === null) {
                 paste.syntax = Object.keys(req.query)[0]
                 await paste.save()
-                console.log("Patched an old save")
+                console.log(`Patched old Paste to syntax=${paste.syntax}`)
             }
 
             res.render('view', {
