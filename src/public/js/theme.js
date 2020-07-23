@@ -1,5 +1,4 @@
 let currentDisplayMode = null;
-let themeWatcher = null;
 
 const updateDisplayModeIcons = () => {
     let el = document.querySelector('.color-select');
@@ -13,10 +12,6 @@ const updateDisplayModeIcons = () => {
 };
 
 const toggleDisplayMode = () => {
-    if (themeWatcher) {
-        clearInterval(themeWatcher);
-    }
-
     if (currentDisplayMode == 'dark') {
         window.localStorage.setItem('displayMode', 'light');
         currentDisplayMode = 'light';
@@ -24,7 +19,7 @@ const toggleDisplayMode = () => {
     } else if (currentDisplayMode == 'light') {
         window.localStorage.setItem('displayMode', 'auto');
         currentDisplayMode = 'auto';
-        initThemeWatcher();
+        updateAutoTheme();
     } else {
         window.localStorage.setItem('displayMode', 'dark');
         currentDisplayMode = 'dark';
@@ -33,12 +28,20 @@ const toggleDisplayMode = () => {
     updateDisplayModeIcons();
 };
 
+const updateAutoTheme = () => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('inverted');
+    } else {
+        document.body.classList.remove('inverted');
+    }
+};
+
 const initThemeWatcher = () => {
-    themeWatcher = setInterval(() => {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.classList.add('inverted');
-        } else {
-            document.body.classList.remove('inverted');
+    setInterval(() => {
+        if (window.matchMedia) {
+            if (currentDisplayMode === "auto") {
+                updateAutoTheme();
+            }
         }
     }, 1000);
 };
@@ -63,6 +66,7 @@ window.addEventListener('load', () => {
     } else if (currentDisplayMode == 'light') {
         document.body.classList.remove('inverted');
     } else {
+        updateAutoTheme();
         initThemeWatcher();
     }
 
