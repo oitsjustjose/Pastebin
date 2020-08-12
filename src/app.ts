@@ -19,7 +19,7 @@ app.set('views', path.join(__dirname, './app/Views'))
 
 app.use(express.static(path.join(__dirname, './public')))
 
-mongoose.connect(`mongodb://${process.env.MONGO_URL}/paste`, {
+mongoose.connect(`mongodb://${process.env.MONGO_URI}/paste`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).catch((ex) => {
